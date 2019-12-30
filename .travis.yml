@@ -17,7 +17,7 @@ before_install:
   - docker build -t grobeldev/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true grobeldev/docker-react npm run test
+  - docker run -e CI=true grobeldev/react-test npm run test
 
 deploy:
   provider: script
