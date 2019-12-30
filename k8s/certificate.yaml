@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: thoughtstile-com-tls
+spec:
+  secretName: thoughtstile-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: thoughtstile.com
+  dnsNames:
+    - thoughtstile.com
+    - www.thoughtstile.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - thoughtstile.com
+          - www.thoughtstile.com
